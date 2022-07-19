@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import  { navbar } from './Components/Navbar';
+import Paths from "./Components/Router";
+import { BrowserRouter as Router } from "react-router-dom";
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <navbar>navbar</navbar>
-      </div>
+      <Router>
+      <Paths />
+    </Router>
     );
   }
 }
