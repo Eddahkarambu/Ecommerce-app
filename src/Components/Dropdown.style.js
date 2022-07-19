@@ -1,8 +1,7 @@
-
 import styled from 'styled-components'
 
 
-export const Money = styled.div`
+export const Select = styled.select`
 
 
 `

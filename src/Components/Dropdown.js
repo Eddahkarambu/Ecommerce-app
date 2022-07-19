@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Money} from './Dropdown.style'
+import { Select } from './Dropdown.style'
 
 class Dropdown extends Component {
     constructor(props) {
@@ -28,11 +28,9 @@ class Dropdown extends Component {
           )
         }, this);
         return (
-            <Money>
-            <select>
+            <Select>
             {currencyList}
-          </select>
-          </Money>
+          </Select>
       );
     }
   }
