@@ -15,7 +15,10 @@ height:500px;
 export const ProductSizeWrapper = styled.div`
 display: flex;
 `
-
+export const ProductColorWrapper = styled.div`
+display: flex;
+margin-top:30px
+`
 
 
 

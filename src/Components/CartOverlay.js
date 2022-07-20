@@ -1,6 +1,7 @@
 import { Fragment,Component } from "react";
-import {Overlay, ProductSizeWrapper} from "./CartOverlay.style"
+import {Overlay, ProductSizeWrapper, ProductColorWrapper} from "./CartOverlay.style"
 import  ProductSize from './ProductSize'
+import  ProductColor from './ProductColor'
 
 class CartOverlay extends Component  {
     render(){
@@ -16,6 +17,12 @@ class CartOverlay extends Component  {
                     <ProductSize size="M"/>
                     <ProductSize size="L"/>
                 </ProductSizeWrapper>
+
+                <ProductColorWrapper>
+                    <ProductColor color="grey"/>
+                    <ProductColor color="black"/>
+                    <ProductColor color="green"/>
+                </ProductColorWrapper>
               </Overlay>
             )}
           </Fragment>
