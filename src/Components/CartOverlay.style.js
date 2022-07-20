@@ -10,8 +10,10 @@ z-index: 9;
 padding: 32px 16px;
 width: 325px;
 height:500px;
+`
 
-
+export const ProductSizeWrapper = styled.div`
+display: flex;
 `
 
 

@@ -2,12 +2,24 @@ import React, { Component } from 'react';
 import {Box} from "./ProductSize.style"
 
 class ProductSize extends Component  {
-   
+    constructor(props){
+        super(props)
+        this.state = {
+            clicked: false
+        }
+    }
+
+    handleClick = () => {
+        const {clicked} = this.state;
+        this.setState({clicked: !clicked});
+    }
+
     render(){
-        const { isOpen } = this.props
+        const {clicked} = this.state;
+        const { size } = this.props
         return(
-            <Box>
-            <div>XS</div>
+            <Box clicked={clicked} onClick={this.handleClick} >
+                <div >{size}</div>
             </Box>
         )
     }
