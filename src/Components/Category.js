@@ -8,6 +8,9 @@ class Category extends Component {
       return (
         <div>
         <Navbar/>
+        <div>
+            <h1>Category Name</h1>
+          </div>
         <ProductWrapper>
           <ProductCard/>
           <ProductCard/>
