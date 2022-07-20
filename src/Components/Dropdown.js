@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Select } from './Dropdown.style'
+import { Select,Option } from './Dropdown.style'
 
 class Dropdown extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ class Dropdown extends Component {
         let currencyList = currency.length > 0
             && currency.map((item, i) => {
           return (
-              <option key={i} value={item.id}>{item.id} {item.name}</option>
+              <Option key={i} value={item.id}>{item.id} {item.name}</Option>
           )
         }, this);
         return (

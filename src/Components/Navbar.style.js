@@ -3,14 +3,12 @@ import styled from 'styled-components'
 import { Link } from "react-router-dom"
 
 export const Nav = styled.div`
-position: absolute;
 background: #white;
-margin-top: 30px;
+height:80px;
 width:100%;
 display: flex;
 align-items: center;
 text-align: center;
-
 `
 export const NavLink = styled(Link)`
 width: 65px;
@@ -34,7 +32,6 @@ color: black;
 export const Arrow = styled.div`
 width: 65px;
 height: 20px;
-margin-right: 100px;
 align-items: center;
 text-align: center;
 `
@@ -42,7 +39,6 @@ text-align: center;
 
 export const Signs = styled.div`
 height: 20px;
-margin-right: 100px;
 align-items: center;
 text-align: center;
 display:flex;
@@ -61,6 +57,12 @@ display:flex;
 width:90%;
 margin:auto;
 justify-content:space-between;
+`
+
+export const Cart = styled.img`
+width: 20px;
+height: 20px;
+margin-left: 1rem;
 `
 
 

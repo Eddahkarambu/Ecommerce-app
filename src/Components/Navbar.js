@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Dropdown from './Dropdown';
-import { Nav, NavLink,Arrow,People,Signs,Tools} from './Navbar.style'
+import { Nav, NavLink,Arrow,People,Signs,Tools, Cart} from './Navbar.style'
 import logo from '../images/logo.svg'
-import Cart from '../images/cart.svg'
+import CartIcon from '../images/cart.svg'
 import dolar from '../images/dolar.svg'
 
 
@@ -25,7 +25,7 @@ class Navbar extends Component {
             <Signs>
                 
                 <Dropdown/>
-                <img src={Cart} alt="cart"/>               
+                <Cart src={CartIcon} alt="cart"/>               
           </Signs>
           </Tools>
         </Nav>    
