@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import CartOverlay from "./CartOverlay"
 import Dropdown from './Dropdown';
-import { Nav, NavLink,Arrow,People,Signs,Tools, Cart} from './Navbar.style'
+import { Nav, NavLink,Arrow,People,Signs,Tools, Cart,} from './Navbar.style'
 import logo from '../images/logo.svg'
 import CartIcon from '../images/cart.svg'
+import { ProductSize} from './ProductSize'
 
 class Navbar extends Component {
   constructor(props){
@@ -41,7 +42,8 @@ class Navbar extends Component {
                 
                 <Dropdown/>
                 <Cart  onClick={this.toggleOverlay} src={CartIcon} alt="cart"/>   
-                <CartOverlay isOpen={isOpen} onClose={this.toggleOverlay}/>    
+                <CartOverlay isOpen={isOpen} onClose={this.toggleOverlay}/> 
+                 
           </Signs>
 
           </Tools>
