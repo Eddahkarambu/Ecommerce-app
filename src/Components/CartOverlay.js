@@ -2,6 +2,7 @@ import { Fragment,Component } from "react";
 import {Overlay, ProductSizeWrapper, ProductColorWrapper} from "./CartOverlay.style"
 import  ProductSize from './ProductSize'
 import  ProductColor from './ProductColor'
+import  ProductImage from './ProductImage'
 
 class CartOverlay extends Component  {
     render(){
