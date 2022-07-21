@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Overlay = styled.div`
-background-color: blue;
+background-color: grey;
 right: 5%;
 position: fixed;
 top: 60px;
