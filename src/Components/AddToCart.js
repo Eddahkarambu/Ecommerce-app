@@ -11,12 +11,17 @@ class AddToCart extends Component  {
     }
     add = () => {
         const { num } = this.state;
+        this.setState({num: num +1 });
         
     }
 
     minus = () => {
-        const {} = this.state;
-        console.log('ho')
+        const {num} = this.state;
+        if(num > 0 ){
+            this.setState({num: num -1 });
+        }
+        
+       
     }
 
 
