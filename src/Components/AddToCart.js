@@ -1,19 +1,38 @@
 import React, { Component } from 'react';
-import {BoxNumbers} from "./AddToCart.style"
+import {BoxNumbers,AllBoxes,Num} from "./AddToCart.style"
 
 class AddToCart extends Component  {
     constructor(props){
         super(props)
+        this.state = {
+            num: 1
+        }
+      
+    }
+    add = () => {
+        const { num } = this.state;
+        
     }
 
-    
+    minus = () => {
+        const {} = this.state;
+        console.log('ho')
+    }
+
+
 
     render(){
-        const { Numbers } = this.props
+        const { num } = this.state;
         return(
-            <BoxNumbers >
-                <div>{Numbers}</div>
+            <AllBoxes>
+            <BoxNumbers>
+                <div onClick={this.add}>+</div>
             </BoxNumbers>
+            <Num>{num}</Num>
+            <BoxNumbers>
+                <div onClick={this.minus}>-</div>
+            </BoxNumbers>
+            </AllBoxes>
         )
     }
 }

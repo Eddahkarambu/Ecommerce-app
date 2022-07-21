@@ -20,5 +20,9 @@ display: flex;
 margin-top:30px
 `
 
+export const AddToCartWrapper = styled.div`
+
+`
+
 
 
