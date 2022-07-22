@@ -4,11 +4,13 @@ export const BoxNumbers = styled.div`
 width: 20px;
 height: 20px;
 border: 1px solid black;
-margin:0.5rem 0;
 `
 
 export const AllBoxes = styled.div`
-margin:0.5rem 0;
+display:flex;
+flex-direction:column;
+height:100%;
+justify-content:space-between;
 
 `
 

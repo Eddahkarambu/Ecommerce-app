@@ -9,20 +9,9 @@ cursor: pointer;
 z-index: 9;
 padding: 32px 16px;
 width: 325px;
-height:500px;
+// height:500px;
 `
 
-export const ProductSizeWrapper = styled.div`
-display: flex;
-`
-export const ProductColorWrapper = styled.div`
-display: flex;
-margin-top:30px
-`
-
-export const AddToCartWrapper = styled.div`
-
-`
 
 
 
