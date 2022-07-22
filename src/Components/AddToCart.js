@@ -6,8 +6,7 @@ class AddToCart extends Component  {
         super(props)
         this.state = {
             num: 1
-        }
-      
+        }    
     }
     add = () => {
         const { num } = this.state;
@@ -19,11 +18,8 @@ class AddToCart extends Component  {
         const {num} = this.state;
         if(num > 0 ){
             this.setState({num: num -1 });
-        }
-        
-       
+        }    
     }
-
 
 
     render(){
