@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import  Navbar  from './Navbar';
-import {} from "./Product.style"
+import {Products} from "./Product.style"
 
-class ProductImage extends Component  {
+class Product extends Component  {
    
     render(){
         return(
-            <div>
+            <Products>
                  <Navbar/>
-            </div>
+            </Products>
 
         )
     }
 }
-export default ProductImage;
+export default Product;
