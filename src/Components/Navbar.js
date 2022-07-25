@@ -4,7 +4,7 @@ import Dropdown from './Dropdown';
 import { Nav, NavLink,Arrow,People,Signs,Tools, Cart,} from './Navbar.style'
 import logo from '../images/logo.svg'
 import CartIcon from '../images/cart.svg'
-import { ProductSize} from './ProductSize'
+// import { ProductSize} from './ProductSize'
 
 class Navbar extends Component {
   constructor(props){
@@ -19,9 +19,6 @@ class Navbar extends Component {
     const { isOpen } = this.state;
     this.setState({isOpen: !isOpen})
   };
-
-
-  
 
 
   render() {

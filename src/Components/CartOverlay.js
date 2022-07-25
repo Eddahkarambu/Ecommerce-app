@@ -1,7 +1,7 @@
 import { Fragment,Component } from "react";
-import {Overlay, ProductSizeWrapper, ProductColorWrapper} from "./CartOverlay.style"
-import  ProductSize from './ProductSize'
-import  ProductColor from './ProductColor'
+import {Overlay,CheckoutButtons,Costs,Button1,Button2} from "./CartOverlay.style"
+import CartItem from './CartItem';
+
 
 class CartOverlay extends Component  {
     render(){
@@ -10,19 +10,18 @@ class CartOverlay extends Component  {
             <Fragment>
             {isOpen && (
               <Overlay>
-                <h1>Content in overlay</h1>
-                <ProductSizeWrapper>
-                    <ProductSize size="XS"/>
-                    <ProductSize size="S"/>
-                    <ProductSize size="M"/>
-                    <ProductSize size="L"/>
-                </ProductSizeWrapper>
-
-                <ProductColorWrapper>
-                    <ProductColor color="grey"/>
-                    <ProductColor color="black"/>
-                    <ProductColor color="green"/>
-                </ProductColorWrapper>
+                <CartItem />
+                <CartItem />
+                <Costs>
+                  <div>Total</div>
+                  <div>$ 200.00</div>
+                </Costs>
+             
+                <CheckoutButtons>
+                  <Button1>VIEW BAG</Button1>
+                <Button2>CHECK OUT</Button2>
+                </CheckoutButtons>
+   
               </Overlay>
             )}
           </Fragment>
