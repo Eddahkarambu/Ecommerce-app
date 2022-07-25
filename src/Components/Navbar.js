@@ -21,9 +21,6 @@ class Navbar extends Component {
   };
 
 
-  
-
-
   render() {
     const { isOpen } = this.state;
     return (
