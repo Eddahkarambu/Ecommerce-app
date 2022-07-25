@@ -62,3 +62,10 @@ export const Pcolor = styled.div`
 margin-bottom:0.5rem;
 text-align:start;
 `
+
+export const Header  = styled.div`
+
+`
+export const Paragraph = styled.div`
+
+`

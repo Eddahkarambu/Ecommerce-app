@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import  Navbar  from './Navbar';
 import  ProductColor from './ProductColor'
 import  ProductSize from './ProductSize'
-import {Products,Image,ProductImages,ProductImagess,ProductSizeWrapper,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper} from "./Product.style"
+import {Products,Image,ProductImages,ProductImagess,ProductSizeWrapper,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Header,Paragraph} from "./Product.style"
 
 class Product extends Component  {
    
@@ -47,6 +47,15 @@ class Product extends Component  {
                     <PriceProduct>
                         <div>$50.00</div>
                     </PriceProduct>
+
+                    <Header>
+                      ADD TO CART
+                    </Header>
+
+                    <Paragraph>
+                        Find stunning women cocktail dresses and party dresses.
+                        Stand out in lace and metallic cockatail dresses and party dresses from all your favourite brands
+                    </Paragraph>
 
                  </div>
             </Products>
