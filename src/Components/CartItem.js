@@ -3,7 +3,7 @@ import  ProductColor from './ProductColor'
 import  AddToCart from './AddToCart'
 import  ProductImage from './ProductImage'
 import  ProductSize from './ProductSize'
-import {AllCartItems,ItemDescription,Heading,PriceProduct,SizeOfProduct,ColorOfProduct,AddToCartBoxes,AddToCartImage,Psize,Pcolor,ProductSizeWrapper,ProductColorWrapper} from "./CartItem.style"
+import {AllCartItems,ItemDescription,Heading,PriceProduct,SizeOfProduct,ColorOfProduct,AddToCartBoxes,AddToCartImage,Psize,Pcolor,ProductSizeWrapper,ProductColorWrapper,AddTo} from "./CartItem.style"
 
 
 class CartItem extends Component  {
@@ -41,8 +41,10 @@ class CartItem extends Component  {
 
                     </div>
                 </ItemDescription>
+                <AddTo>
                 <AddToCartBoxes><AddToCart/></AddToCartBoxes>
                 <AddToCartImage><ProductImage/></AddToCartImage>
+                </AddTo>
             </AllCartItems>
         )
     }

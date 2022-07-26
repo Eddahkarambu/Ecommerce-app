@@ -4,6 +4,9 @@ export const BoxNumbers = styled.div`
 width: 20px;
 height: 20px;
 border: 1px solid black;
+align-items:center;
+display:flex;
+justify-content:center;
 `
 
 export const AllBoxes = styled.div`

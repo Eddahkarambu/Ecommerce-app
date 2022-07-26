@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import  Navbar  from './Navbar';
 import  ProductColor from './ProductColor'
 import  ProductSize from './ProductSize'
-import {Products,Image,ProductImages,ProductImagess,ProductSizeWrapper,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Header,Paragraph} from "./Product.style"
+
+import {Products,Img,ProductImages,ProductImagess,ProductSizeWrapper,Images,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Paragraph,AllProducts,AddToCartButton,Button4,Imgs,AllProducts1} from "./Product.style"
 
 class Product extends Component  {
    
@@ -10,20 +11,25 @@ class Product extends Component  {
         return(
             <Products>
                  <Navbar/>
-                 <ProductImages>
-                    <Image src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
-                    <Image src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
-                    <Image src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
-                 </ProductImages>
 
-                 <ProductImagess>
-                 <Image src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
-                 </ProductImagess>
+                 <AllProducts>
+                    <AllProducts1>
+                    <Imgs>
+                        <ProductImages>
+                            <Img src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
+                            <Img src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
+                            <Img src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
+                        </ProductImages>
+
+                        <ProductImagess>
+                        <Images src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
+                        </ProductImagess>
+                 </Imgs>
 
                  <div>
                  <Heading>
-                        <div>Apollo</div>
-                        <div>Running Short</div>
+                        <h3>Apollo</h3>
+                        <h3>Running Short</h3>
                     </Heading>
 
                     <SizeOfProduct>
@@ -45,19 +51,21 @@ class Product extends Component  {
                     </ColorOfProduct>
 
                     <PriceProduct>
+                        <div>Price:</div>
                         <div>$50.00</div>
                     </PriceProduct>
 
-                    <Header>
-                      ADD TO CART
-                    </Header>
+                    <AddToCartButton>
+                     <Button4>ADD TO CART</Button4>
+                    </AddToCartButton>
 
                     <Paragraph>
-                        Find stunning women cocktail dresses and party dresses.
-                        Stand out in lace and metallic cockatail dresses and party dresses from all your favourite brands
+                        Find stunning women cocktail dresses and party dresses.Stand out in lace and metallic cockatail dresses and party dresses from all your favourite brands
                     </Paragraph>
 
                  </div>
+                 </AllProducts1>
+                 </AllProducts>
             </Products>
 
         )

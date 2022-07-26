@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export const AllCartItems = styled.div`
 display:flex;
 margin-bottom:1rem;
+justify-content:space-between;
 
 `
 export const ItemDescription = styled.div`
@@ -49,6 +50,9 @@ text-align:start;
 export const Pcolor = styled.div`
 margin-bottom:0.5rem;
 text-align:start;
+`
+export const AddTo = styled.div`
+display:flex;
 `
 
 
