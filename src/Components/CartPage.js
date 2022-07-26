@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import  Navbar  from './Navbar';
-import  ProductColor from './ProductColor'
-import  ProductSize from './ProductSize'
-import {CartProducts,ProductSizeWrapper,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Header,Paragraph} from "./Cartpage.style"
+import {CartProducts,Cost,Taxes,Quantity,Totals,Orderbutton,AllCartItems,Amount,Button3,TotalAmount} from "./Cartpage.style"
+import CartItem from './CartItem';
 
 class CartPage extends Component  {
    
@@ -11,83 +10,28 @@ class CartPage extends Component  {
             <CartProducts>
                  <Navbar/>
                  
-                 <div>
-                 <Heading>
-                        <div>Apollo</div>
-                        <div>Running Short</div>
-                    </Heading>
+                 <AllCartItems>
+                 <CartItem />
+                <CartItem />
+                <Cost>
+                <Taxes>
+                        <TotalAmount>Tax 21%:</TotalAmount>
+                        <Amount>$42.00</Amount>
+                  </Taxes>
+                <Quantity>
+                        <TotalAmount>Quantity:</TotalAmount>
+                        <Amount>3</Amount>
+                  </Quantity>
+                    <Totals>
+                        <TotalAmount>Total:</TotalAmount>
+                        <Amount>$ 200.00</Amount>
+                  </Totals>
+                </Cost>
 
-                    <SizeOfProduct>
-                        <Psize>Size</Psize>
-                        <ProductSizeWrapper>
-                        <ProductSize size="XS"/>
-                        <ProductSize size="S"/>
-                        <ProductSize size="M"/>
-                        <ProductSize size="L"/>
-                        </ProductSizeWrapper>
-                    </SizeOfProduct>
-                    <ColorOfProduct>
-                        <Pcolor>Color</Pcolor>
-                        <ProductColorWrapper>
-                        <ProductColor color="grey"/>
-                        <ProductColor color="black"/>
-                        <ProductColor color="green"/>
-                        </ProductColorWrapper>
-                    </ColorOfProduct>
-
-                    <PriceProduct>
-                        <div>$50.00</div>
-                    </PriceProduct>
-
-                    <Header>
-                      ADD TO CART
-                    </Header>
-
-                    <Paragraph>
-                        Find stunning women cocktail dresses and party dresses.
-                        Stand out in lace and metallic cockatail dresses and party dresses from all your favourite brands
-                    </Paragraph>
-
-                 </div>
-
-                 <div>
-                 <Heading>
-                        <div>Apollo</div>
-                        <div>Running Short</div>
-                    </Heading>
-
-                    <SizeOfProduct>
-                        <Psize>Size</Psize>
-                        <ProductSizeWrapper>
-                        <ProductSize size="XS"/>
-                        <ProductSize size="S"/>
-                        <ProductSize size="M"/>
-                        <ProductSize size="L"/>
-                        </ProductSizeWrapper>
-                    </SizeOfProduct>
-                    <ColorOfProduct>
-                        <Pcolor>Color</Pcolor>
-                        <ProductColorWrapper>
-                        <ProductColor color="grey"/>
-                        <ProductColor color="black"/>
-                        <ProductColor color="green"/>
-                        </ProductColorWrapper>
-                    </ColorOfProduct>
-
-                    <PriceProduct>
-                        <div>$50.00</div>
-                    </PriceProduct>
-
-                    <Header>
-                      ADD TO CART
-                    </Header>
-
-                    <Paragraph>
-                        Find stunning women cocktail dresses and party dresses.
-                        Stand out in lace and metallic cockatail dresses and party dresses from all your favourite brands
-                    </Paragraph>
-
-                 </div>
+                <Orderbutton>
+                    <Button3>Order</Button3>
+                </Orderbutton>
+                 </AllCartItems>
             </CartProducts>
 
         )
