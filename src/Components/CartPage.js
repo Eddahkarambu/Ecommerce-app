@@ -11,6 +11,9 @@ class CartPage extends Component  {
                  <Navbar/>
                  
                  <AllCartItems>
+                    <div>
+                        <h1>CART</h1>
+                    </div>
                  <CartItem />
                 <CartItem />
                 <Cost>

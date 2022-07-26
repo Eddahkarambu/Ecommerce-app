@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import  Navbar  from './Navbar';
 import  ProductColor from './ProductColor'
 import  ProductSize from './ProductSize'
-import {Products,Image,ProductImages,ProductImagess,ProductSizeWrapper,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Header,Paragraph} from "./Product.style"
+
+import {Products,Image,ProductImages,ProductImagess,ProductSizeWrapper,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Header,Paragraph,AllProducts,AddToCartButton,Button4} from "./Product.style"
 
 class Product extends Component  {
    
@@ -10,6 +11,8 @@ class Product extends Component  {
         return(
             <Products>
                  <Navbar/>
+
+                 <AllProducts>
                  <ProductImages>
                     <Image src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
                     <Image src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
@@ -21,6 +24,7 @@ class Product extends Component  {
                  </ProductImagess>
 
                  <div>
+                
                  <Heading>
                         <div>Apollo</div>
                         <div>Running Short</div>
@@ -48,16 +52,16 @@ class Product extends Component  {
                         <div>$50.00</div>
                     </PriceProduct>
 
-                    <Header>
-                      ADD TO CART
-                    </Header>
+                    <AddToCartButton>
+                     <Button4>ADD TO CART</Button4>
+                    </AddToCartButton>
 
                     <Paragraph>
-                        Find stunning women cocktail dresses and party dresses.
-                        Stand out in lace and metallic cockatail dresses and party dresses from all your favourite brands
+                        Find stunning women cocktail dresses and party dresses.Stand out in lace and metallic cockatail dresses and party dresses from all your favourite brands
                     </Paragraph>
 
                  </div>
+                 </AllProducts>
             </Products>
 
         )

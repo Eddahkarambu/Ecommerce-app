@@ -1,24 +1,36 @@
 import styled from 'styled-components'
 
 export const Products = styled.div`
-display:flex;
+
 
 `
 
 export const Image = styled.img`
+width: 121px;
+height: 190px;
+margin-right:50px;
+
 
 
 `
 export const ProductImages = styled.div`
-width: 121px;
-height: 190px;
-margin-right:50px;
+display:flex;
+flex-direction:column;
+justify-content:space-around;
 
 `
 export const ProductImagess = styled.div`
 
 
 `
+
+export const AllProducts = styled.div`
+display:flex;
+justify-content:space-between;
+
+
+`
+
 
 
 export const PriceProduct = styled.div`
@@ -66,6 +78,18 @@ text-align:start;
 export const Header  = styled.div`
 
 `
+export const AddToCartButton  = styled.div`
+
+`
+export const Button4  = styled.button`
+background-color:green;
+Padding:16px 70px;
+color:white;
+border: 1px solid #1D1F22;
+
+`
 export const Paragraph = styled.div`
+width:70px;
+
 
 `
