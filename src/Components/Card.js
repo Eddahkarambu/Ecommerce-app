@@ -4,12 +4,14 @@ import { CardWrapper, CardImage, CardContent, ProductName, ProductPrice } from '
 class ProductCard extends Component {
 
     render(){
+        const {product} = this.props;
+        console.log(product)
         return(
             <CardWrapper>
-                <CardImage src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg' />
+                <CardImage src={product.gallery[0]} />
                 <CardContent>
-                    <ProductName>Apollo  Running Short</ProductName>
-                    <ProductPrice>$50.00</ProductPrice>
+                    <ProductName>{product.name}</ProductName>
+                    <ProductPrice>${product.prices[0].amount}</ProductPrice>
 
                 </CardContent>
 

@@ -27,8 +27,6 @@ query {
 }
 `
 
-
-
 class Category extends Component {
     render() {
       return (
@@ -43,8 +41,8 @@ class Category extends Component {
             {({loading, error, data}) =>{
               if(loading) return <p> Loading...</p>
               if(error) return <p> {error}</p>
-              return data.category.products.map((products)=>(
-                <ProductCard key={products.id}/>
+              return data.category.products.map((product)=>(
+                <ProductCard key={product.id} product={product}/>
               ))    
               }}
             </Query>

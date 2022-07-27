@@ -8,7 +8,7 @@ class Dropdown extends Component {
       return (
         <Select>
           {currencies.map((currency) => (
-                  <Option key={currency.label}>{currency.symbol}  {currency.label}</Option>
+                  <Option key={currency.label}>{currency.symbol}{currency.label}</Option>
           ))}
         </Select>
       )

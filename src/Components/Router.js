@@ -12,7 +12,7 @@ export default class Paths extends Component {
                     <Route path="/" exact element={<Category/>}></Route>
                     <Route path="/Product" exact element={<Product/>}></Route>
                     <Route path="/CartPage" exact element={<CartPage/>}></Route>
-                    <Route path="/Product" exact element={<Product/>}></Route>
+                    <Route path="/Product/{id}" exact element={<Product/>}></Route>
                 </Routes>
         )
     }
