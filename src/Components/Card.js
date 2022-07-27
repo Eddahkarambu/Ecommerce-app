@@ -3,8 +3,6 @@ import { CardWrapper, CardImage, CardContent, ProductName, ProductPrice } from '
 
 class ProductCard extends Component {
 
-
-
     render(){
         return(
             <CardWrapper>

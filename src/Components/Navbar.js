@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CartOverlay from "./CartOverlay"
-import Dropdown from './Dropdown';
+import DropdownContainer from './DropdownContainer';
 import { Nav, NavLink,Arrow,People,Signs,Tools, Cart,} from './Navbar.style'
 import logo from '../images/logo.svg'
 import CartIcon from '../images/cart.svg'
@@ -37,7 +37,7 @@ class Navbar extends Component {
             </Arrow>
             <Signs>
                 
-                <Dropdown/>
+                <DropdownContainer/>
                 <Cart  onClick={this.toggleOverlay} src={CartIcon} alt="cart"/>   
                 <CartOverlay isOpen={isOpen} onClose={this.toggleOverlay}/> 
                  
