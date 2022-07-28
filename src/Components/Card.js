@@ -1,13 +1,24 @@
 import React,  {Component} from 'react';
 import { CardWrapper, CardImage, CardContent, ProductName, ProductPrice } from './Card.style';
+import {withRouter} from './WithRouter';
+
+
 
 class ProductCard extends Component {
+   
 
+    onClickPage = () =>
+    {
+        const {product} = this.props;
+        this.props.navigate(`/Product/${product.id}`);
+    }
+  
+  
+    
     render(){
         const {product} = this.props;
-        console.log(product)
         return(
-            <CardWrapper>
+            <CardWrapper onClick={this.onClickPage}>
                 <CardImage src={product.gallery[0]} />
                 <CardContent>
                     <ProductName>{product.name}</ProductName>
@@ -19,4 +30,4 @@ class ProductCard extends Component {
         )
     }
 }
-export default ProductCard;
+export default withRouter(ProductCard);
