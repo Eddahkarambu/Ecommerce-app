@@ -14,8 +14,16 @@ query($id: String!){
       gallery
       name
       description
+      prices{
+        currency {
+          label
+          symbol
+        }
+        amount
+      }
       attributes{
         name
+        type
         items {
           displayValue
           value
@@ -27,14 +35,12 @@ query($id: String!){
 class Product extends Component  {
 
    
-    render(){
-        console.log(this.props.params.id)
+    render(){ 
         return(
             <Query query={GET_ALL_PRODUCTDETAILS} variables={{id:this.props.params.id}}>
             {({loading, error, data}) =>{
             if(loading) return <p> Loading...</p>
             if(error) return <p> {error}</p>
-            console.log(data)
              return (
         
   
@@ -61,28 +67,34 @@ class Product extends Component  {
                  <Heading>
                         <h3>{data.product.name}</h3>
                     </Heading>
+                    
+                    {data.product.attributes.map((attribute)=>(
+                       attribute.type === "swatch" 
+                       ? (<ColorOfProduct  key={attribute.name}>
+                       <Pcolor>{attribute.name}</Pcolor>
+                       <ProductColorWrapper>
+                       {attribute.items.map((item)=>(
+                         <ProductColor  key={item.value} color={item.value}/>
 
-                    <SizeOfProduct>
-                        <Psize>Size</Psize>
-                        <ProductSizeWrapper>
-                        <ProductSize size="XS"/>
-                        <ProductSize size="S"/>
-                        <ProductSize size="M"/>
-                        <ProductSize size="L"/>
-                        </ProductSizeWrapper>
-                    </SizeOfProduct>
-                    <ColorOfProduct>
-                        <Pcolor>Color</Pcolor>
-                        <ProductColorWrapper>
-                        <ProductColor color="grey"/>
-                        <ProductColor color="black"/>
-                        <ProductColor color="green"/>
-                        </ProductColorWrapper>
-                    </ColorOfProduct>
+                        ))}
+                       </ProductColorWrapper>
 
+                   </ColorOfProduct>)
+                       : (<SizeOfProduct key={attribute.name}>
+                       <Psize>{attribute.name}</Psize>
+                       <ProductSizeWrapper>
+                       {attribute.items.map((size)=>(
+                         <ProductSize  key={size.value} size={size.value}/>
+
+                        ))}
+                     
+                       </ProductSizeWrapper>
+                   </SizeOfProduct>)
+                       
+        ))}
+                     <Psize>Price</Psize>
                     <PriceProduct>
-                        <div>Price:</div>
-                        <div>$50.00</div>
+                     $ {data.product.prices[0].amount}
                     </PriceProduct>
 
                     <AddToCartButton>
