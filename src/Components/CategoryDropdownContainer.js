@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Query} from 'react-apollo';
 import {gql} from 'apollo-boost'
-import CategoryDropdown from './CategoryDropdown';
+import CategoryDropdownContainer from './CategoryDropdownContainer';
 
 const GET_ALL_CATEGORIES = gql`
 query {
