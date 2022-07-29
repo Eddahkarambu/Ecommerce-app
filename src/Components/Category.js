@@ -33,7 +33,7 @@ class Category extends Component {
         <div>
         <Navbar/>
         <div>
-            <h1>Category Name</h1>
+            <h1>Category Name</h1> 
           </div>
           
         <ProductWrapper>
