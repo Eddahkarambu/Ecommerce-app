@@ -4,12 +4,13 @@ import ProductCard from './Card';
 import { ProductWrapper } from './Category.style';
 import {Query} from 'react-apollo';
 import {gql} from 'apollo-boost'
+import { connect } from "react-redux"
 import CategoryDropdownContainer from './CategoryDropdownContainer';
 
 
 const GET_ALL_TECH = gql`
-query {
-  category(input: {title: "all"}) {
+query($title: String!) {
+  category(input: {title: $title}) {
     name,
     products{
       id,
@@ -29,7 +30,10 @@ query {
 `
 
 class Category extends Component {
+  
+ 
     render() {
+      const { category } = this.props;
       return (
         <div>
         <Navbar/>
@@ -40,7 +44,7 @@ class Category extends Component {
           </div>
           
         <ProductWrapper>
-          <Query query={GET_ALL_TECH}>
+          <Query query={GET_ALL_TECH} variables={{title: category}}>
             {({loading, error, data}) =>{
               if(loading) return <p> Loading...</p>
               if(error) return <p> {error}</p>
@@ -54,5 +58,10 @@ class Category extends Component {
       );
     }
   }
+  function mapStateToProps(state){
+    const {category} = state
+    return category
+}
+export default connect (mapStateToProps)(Category);
+
   
-  export default Category;

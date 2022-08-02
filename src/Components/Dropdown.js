@@ -5,6 +5,13 @@ import { Select,Option } from './Dropdown.style'
 
 
 class Dropdown extends Component { 
+    componentDidMount() {
+      const {currencies, changeCurrency} = this.props;
+      if(currencies.length){
+        changeCurrency(currencies[0].label)
+      }
+
+    }
 
     handleChange = (e) => {
       this.props.changeCurrency(e.target.value)
@@ -21,6 +28,7 @@ class Dropdown extends Component {
       
     }
   }
+
   
   export default connect(null, {changeCurrency}) (Dropdown)
 
