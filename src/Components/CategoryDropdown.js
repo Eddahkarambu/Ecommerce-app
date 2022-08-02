@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Category from './Category';
 import { Select,Option } from './CategoryDropdown.style'
 
 
@@ -8,8 +7,8 @@ class CategoryDropdown extends Component {
       const {categories} = this.props;
       return (
         <Select>
-          {categories.map((name) => (
-                  <Option key={categories.name}>{categories.name}</Option>
+          {categories.map((category) => (
+                  <Option key={category.name}>{category.name}</Option>
           ))}
         </Select>
       )

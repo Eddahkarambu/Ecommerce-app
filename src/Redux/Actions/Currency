@@ -1,0 +1,10 @@
+import { TOGGLE_CURRENCY } from "./ActionTypes"
+
+
+export const changeCurrency = (currency) => {
+return {
+        type: TOGGLE_CURRENCY,
+        payload: currency
+    }
+}
+

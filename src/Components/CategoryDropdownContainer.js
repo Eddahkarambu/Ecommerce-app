@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Query} from 'react-apollo';
 import {gql} from 'apollo-boost'
-import CategoryDropdownContainer from './CategoryDropdownContainer';
+import CategoryDropdown from './CategoryDropdown';
 
 const GET_ALL_CATEGORIES = gql`
 query {
@@ -19,7 +19,7 @@ class CategoryDropdownContainer extends Component {
           {({loading, error, data}) =>{
             if(loading) return <p> Loading...</p>
             if(error) return <p> {error}</p>
-            return <Dropdown categories={data.categories} />
+            return <CategoryDropdown categories={data.categories} />
                 
             }}
           </Query>

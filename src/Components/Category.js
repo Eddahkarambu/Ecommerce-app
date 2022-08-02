@@ -4,6 +4,7 @@ import ProductCard from './Card';
 import { ProductWrapper } from './Category.style';
 import {Query} from 'react-apollo';
 import {gql} from 'apollo-boost'
+import CategoryDropdownContainer from './CategoryDropdownContainer';
 
 
 const GET_ALL_TECH = gql`
@@ -32,8 +33,10 @@ class Category extends Component {
       return (
         <div>
         <Navbar/>
+        
         <div>
-            <h1>Category Name</h1> 
+    
+            <h1>Category Name <CategoryDropdownContainer/> </h1> 
           </div>
           
         <ProductWrapper>
