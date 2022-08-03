@@ -1,40 +1,39 @@
 import React, { Component } from 'react';
 import {BoxNumbers,AllBoxes,Num} from "./AddToCart.style"
+import { connect } from "react-redux"
+import { increaseCartItemQuantity,decreaseCartItemQuantity } from "../Redux/Actions/Cart";
+
 
 class AddToCart extends Component  {
-    constructor(props){
-        super(props)
-        this.state = {
-            num: 1
-        }    
-    }
-    add = () => {
-        const { num } = this.state;
-        this.setState({num: num +1 });
-        
+    add = (id) => {
+        this.props.increaseCartItemQuantity(id)   
     }
 
-    minus = () => {
-        const {num} = this.state;
-        if(num > 0 ){
-            this.setState({num: num -1 });
-        }    
+    minus = (id) => {
+          this.props.decreaseCartItemQuantity(id)
     }
 
 
     render(){
-        const { num } = this.state;
+        const { product } = this.props;
+        console.log(product.quantity)
         return(
             <AllBoxes>
             <BoxNumbers>
-                <div onClick={this.add}>+</div>
+                <div onClick={()=>this.add(product.id)} >+</div>
             </BoxNumbers>
-            <Num>{num}</Num>
+            <Num>{product.quantity}</Num>
             <BoxNumbers>
-                <div onClick={this.minus}>-</div>
+                <div onClick={()=>this.minus(product.id)} >-</div>
             </BoxNumbers>
             </AllBoxes>
         )
     }
 }
-export default AddToCart;
+
+const mapDispatchToProps = { 
+    increaseCartItemQuantity,
+    decreaseCartItemQuantity
+
+}
+export default connect(null, mapDispatchToProps) (AddToCart);

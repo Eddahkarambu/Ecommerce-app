@@ -2,20 +2,27 @@ import React, { Component } from 'react';
 import  Navbar  from './Navbar';
 import {CartProducts,Cost,Taxes,Quantity,Totals,Orderbutton,AllCartItems,Amount,Button3,TotalAmount} from "./CartPage.style"
 import CartItem from './CartItem';
+import { connect } from "react-redux"
 
 class CartPage extends Component  {
    
     render(){
+             const { cart } = this.props
+             console.log(cart)
         return(
             <CartProducts>
                  <Navbar/>
-                 
+                 {cart.length? (
+                 <div>
                  <AllCartItems>
                     <div>
                         <h1>CART</h1>
                     </div>
-                 <CartItem />
-                <CartItem />
+                    
+                    {cart.map((cartItem) => (
+                  <CartItem product={cartItem}/>
+                ))}
+                
                 <Cost>
                 <Taxes>
                         <TotalAmount>Tax 21%:</TotalAmount>
@@ -35,9 +42,16 @@ class CartPage extends Component  {
                     <Button3>Order</Button3>
                 </Orderbutton>
                  </AllCartItems>
+                
+                 </div>) : (
+                    <div> No Items in Cart</div>)}
             </CartProducts>
 
         )
     }
 }
-export default CartPage;
+function mapStateToProps(state){
+    const {cart} = state
+    return cart
+  }
+  export default  connect(mapStateToProps) (CartPage);

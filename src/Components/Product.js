@@ -5,12 +5,16 @@ import  ProductSize from './ProductSize'
 import {Query} from 'react-apollo';
 import {gql} from 'apollo-boost'
 import {withRouter} from './WithRouter';
+import { connect } from "react-redux"
+import { addToCart } from "../Redux/Actions/Cart";
+import { compose } from "redux"
 
 import {Products,Img,ProductImages,ProductImagess,ProductSizeWrapper,Images,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Paragraph,AllProducts,AddToCartButton,Button4,Imgs,AllProducts1} from "./Product.style"
 
 const GET_ALL_PRODUCTDETAILS =  gql`
 query($id: String!){
     product(id: $id){
+      id
       gallery
       name
       description
@@ -34,19 +38,21 @@ query($id: String!){
 
 class Product extends Component  {
 
+  handleClick = (product) => {
+    this.props.addToCart(product)
+  }
+
    
     render(){ 
+      
         return(
             <Query query={GET_ALL_PRODUCTDETAILS} variables={{id:this.props.params.id}}>
             {({loading, error, data}) =>{
             if(loading) return <p> Loading...</p>
             if(error) return <p> {error}</p>
              return (
-        
-  
             <Products>
                  <Navbar/>
-
                  <AllProducts>
                     <AllProducts1>
                     <Imgs>
@@ -98,11 +104,10 @@ class Product extends Component  {
                     </PriceProduct>
 
                     <AddToCartButton>
-                     <Button4>ADD TO CART</Button4>
+                     <Button4 onClick={()=>this.handleClick(data.product)}>ADD TO CART</Button4>
                     </AddToCartButton>
 
                     <Paragraph><div dangerouslySetInnerHTML={{__html:data.product.description}} /></Paragraph>
-
                  </div>
                  </AllProducts1>
                  </AllProducts>
@@ -114,4 +119,8 @@ class Product extends Component  {
         )
     }
 }
-export default  withRouter(Product);
+export default compose(
+  withRouter,
+  connect(null, {addToCart})
+) (Product);
+
