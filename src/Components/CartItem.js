@@ -3,50 +3,72 @@ import  ProductColor from './ProductColor'
 import  AddToCart from './AddToCart'
 import  ProductImage from './ProductImage'
 import  ProductSize from './ProductSize'
+import { getAmount } from "../Utils"
+import { connect } from "react-redux"
+import { removeFromCart} from "../Redux/Actions/Cart";
 import {AllCartItems,ItemDescription,Heading,PriceProduct,SizeOfProduct,ColorOfProduct,AddToCartBoxes,AddToCartImage,Psize,Pcolor,ProductSizeWrapper,ProductColorWrapper,AddTo} from "./CartItem.style"
 
 
 class CartItem extends Component  {
+    
+  handleClick = (id) => {
+    console.log(id)
+    this.props.removeFromCart(id)
+  }
    
     render(){
+        const { product, currency} = this.props;
+        console.log(product)
         return(
             <AllCartItems>
                 <ItemDescription>
                     <Heading>
-                        <div>Apollo</div>
-                        <div>Running Short</div>
+                        <div>{product.name}</div>
                     </Heading>
                     <PriceProduct>
-                        <div>$50.00</div>
+                        <div>{getAmount(product.prices, currency)}</div>
                     </PriceProduct>
-                    <SizeOfProduct>
-                        <Psize>Size</Psize>
-                        <ProductSizeWrapper>
-                        <ProductSize size="XS"/>
-                        <ProductSize size="S"/>
-                        <ProductSize size="M"/>
-                        <ProductSize size="L"/>
-                        </ProductSizeWrapper>
-                    </SizeOfProduct>
-                    <ColorOfProduct>
-                        <Pcolor>Color</Pcolor>
-                        <ProductColorWrapper>
-                        <ProductColor color="grey"/>
-                        <ProductColor color="black"/>
-                        <ProductColor color="green"/>
-                        </ProductColorWrapper>
+                    {product.attributes.map((attribute)=>(
+                       attribute.type === "swatch" 
+                       ? (<ColorOfProduct  key={attribute.name}>
+                       <Pcolor>{attribute.name}</Pcolor>
+                       <ProductColorWrapper>
+                       {attribute.items.map((item)=>(
+                         <ProductColor  key={item.value} color={item.value}/>
 
-                    </ColorOfProduct>
+                        ))}
+                       </ProductColorWrapper>
+
+                   </ColorOfProduct>)
+                       : (<SizeOfProduct key={attribute.name}>
+                       <Psize>{attribute.name}</Psize>
+                       <ProductSizeWrapper>
+                       {attribute.items.map((size)=>(
+                         <ProductSize  key={size.value} size={size.value}/>
+
+                        ))}
+                     
+                       </ProductSizeWrapper>
+                   </SizeOfProduct>
+                   )
+                       
+        ))}
+                    
+                   <button onClick={()=>this.handleClick(product.id)} >Remove Cart</button>
                     <div>
 
                     </div>
                 </ItemDescription>
                 <AddTo>
-                <AddToCartBoxes><AddToCart/></AddToCartBoxes>
-                <AddToCartImage><ProductImage/></AddToCartImage>
+                <AddToCartBoxes><AddToCart product={product}/></AddToCartBoxes>
+                <AddToCartImage><ProductImage img={product.gallery[0]}/></AddToCartImage>
                 </AddTo>
             </AllCartItems>
         )
     }
 }
-export default CartItem;
+function mapStateToProps(state){
+    const {currency} = state
+    return currency
+}
+export default connect(mapStateToProps, {removeFromCart}) (CartItem);
