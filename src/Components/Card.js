@@ -1,17 +1,30 @@
 import React,  {Component} from 'react';
 import { CardWrapper, CardImage, CardContent, ProductName, ProductPrice } from './Card.style';
+import {withRouter} from './WithRouter';
+import { connect } from "react-redux"
+import { compose } from "redux"
+import { getAmount } from "../Utils"
+
 
 class ProductCard extends Component {
+   
 
-
-
+    onClickPage = () =>
+    {
+        const {product} = this.props;
+        this.props.navigate(`/Product/${product.id}`);
+    }
+  
+  
+    
     render(){
+        const {product, currency} = this.props;
         return(
-            <CardWrapper>
-                <CardImage src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg' />
+            <CardWrapper onClick={this.onClickPage}>
+                <CardImage src={product.gallery[0]} />
                 <CardContent>
-                    <ProductName>Apollo  Running Short</ProductName>
-                    <ProductPrice>$50.00</ProductPrice>
+                    <ProductName>{product.name}</ProductName>
+                    <ProductPrice>{getAmount(product.prices, currency)}</ProductPrice>
 
                 </CardContent>
 
@@ -19,4 +32,11 @@ class ProductCard extends Component {
         )
     }
 }
-export default ProductCard;
+function mapStateToProps(state){
+    const {currency} = state
+    return currency
+}
+export default compose(
+    withRouter,
+    connect(mapStateToProps)
+)(ProductCard)

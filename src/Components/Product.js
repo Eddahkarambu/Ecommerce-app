@@ -2,73 +2,116 @@ import React, { Component } from 'react';
 import  Navbar  from './Navbar';
 import  ProductColor from './ProductColor'
 import  ProductSize from './ProductSize'
+import {Query} from 'react-apollo';
+import {gql} from 'apollo-boost'
+import {withRouter} from './WithRouter';
 
 import {Products,Img,ProductImages,ProductImagess,ProductSizeWrapper,Images,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Paragraph,AllProducts,AddToCartButton,Button4,Imgs,AllProducts1} from "./Product.style"
 
+const GET_ALL_PRODUCTDETAILS =  gql`
+query($id: String!){
+    product(id: $id){
+      gallery
+      name
+      description
+      prices{
+        currency {
+          label
+          symbol
+        }
+        amount
+      }
+      attributes{
+        name
+        type
+        items {
+          displayValue
+          value
+        }
+      }
+    }
+  }`
+
 class Product extends Component  {
+
    
-    render(){
+    render(){ 
         return(
+            <Query query={GET_ALL_PRODUCTDETAILS} variables={{id:this.props.params.id}}>
+            {({loading, error, data}) =>{
+            if(loading) return <p> Loading...</p>
+            if(error) return <p> {error}</p>
+             return (
+        
+  
             <Products>
                  <Navbar/>
 
                  <AllProducts>
                     <AllProducts1>
                     <Imgs>
+
+                  
                         <ProductImages>
-                            <Img src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
-                            <Img src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
-                            <Img src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
+                            <Img src={data.product.gallery[0]}/>
+                            <Img src={data.product.gallery[0]}/>
+                            <Img src={data.product.gallery[0]}/>
                         </ProductImages>
 
                         <ProductImagess>
-                        <Images src='https://images.canadagoose.com/image/upload/w_480,c_scale,f_auto,q_auto:best/v1576016110/product-image/2409L_61_d.jpg'/>
+                        <Images src={data.product.gallery[0]}/>
                         </ProductImagess>
                  </Imgs>
 
                  <div>
                  <Heading>
-                        <h3>Apollo</h3>
-                        <h3>Running Short</h3>
+                        <h3>{data.product.name}</h3>
                     </Heading>
+                    
+                    {data.product.attributes.map((attribute)=>(
+                       attribute.type === "swatch" 
+                       ? (<ColorOfProduct  key={attribute.name}>
+                       <Pcolor>{attribute.name}</Pcolor>
+                       <ProductColorWrapper>
+                       {attribute.items.map((item)=>(
+                         <ProductColor  key={item.value} color={item.value}/>
 
-                    <SizeOfProduct>
-                        <Psize>Size</Psize>
-                        <ProductSizeWrapper>
-                        <ProductSize size="XS"/>
-                        <ProductSize size="S"/>
-                        <ProductSize size="M"/>
-                        <ProductSize size="L"/>
-                        </ProductSizeWrapper>
-                    </SizeOfProduct>
-                    <ColorOfProduct>
-                        <Pcolor>Color</Pcolor>
-                        <ProductColorWrapper>
-                        <ProductColor color="grey"/>
-                        <ProductColor color="black"/>
-                        <ProductColor color="green"/>
-                        </ProductColorWrapper>
-                    </ColorOfProduct>
+                        ))}
+                       </ProductColorWrapper>
 
+                   </ColorOfProduct>)
+                       : (<SizeOfProduct key={attribute.name}>
+                       <Psize>{attribute.name}</Psize>
+                       <ProductSizeWrapper>
+                       {attribute.items.map((size)=>(
+                         <ProductSize  key={size.value} size={size.value}/>
+
+                        ))}
+                     
+                       </ProductSizeWrapper>
+                   </SizeOfProduct>)
+                       
+        ))}
+                     <Psize>Price</Psize>
                     <PriceProduct>
-                        <div>Price:</div>
-                        <div>$50.00</div>
+                     $ {data.product.prices[0].amount}
                     </PriceProduct>
 
                     <AddToCartButton>
                      <Button4>ADD TO CART</Button4>
                     </AddToCartButton>
 
-                    <Paragraph>
-                        Find stunning women cocktail dresses and party dresses.Stand out in lace and metallic cockatail dresses and party dresses from all your favourite brands
-                    </Paragraph>
+                    <Paragraph><div dangerouslySetInnerHTML={{__html:data.product.description}} /></Paragraph>
 
                  </div>
                  </AllProducts1>
                  </AllProducts>
             </Products>
+            ) 
+                }}
+            </Query>
 
         )
     }
 }
-export default Product;
+export default  withRouter(Product);

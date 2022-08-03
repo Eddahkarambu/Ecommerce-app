@@ -1,11 +1,10 @@
 import styled from 'styled-components'
 
 export const Box = styled.div`
-width: 24px;
-height: 24px;
+
 border: 1px solid black;
 margin: 0 0.25rem;
-padding: 0;
+padding: 0.5rem;
 align-items: center;
 display:flex;
 justify-content:center;

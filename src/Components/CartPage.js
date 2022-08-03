@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import  Navbar  from './Navbar';
-import {CartProducts,Cost,Taxes,Quantity,Totals,Orderbutton,AllCartItems,Amount,Button3,TotalAmount} from "./Cartpage.style"
+import {CartProducts,Cost,Taxes,Quantity,Totals,Orderbutton,AllCartItems,Amount,Button3,TotalAmount} from "./CartPage.style"
 import CartItem from './CartItem';
 
 class CartPage extends Component  {
