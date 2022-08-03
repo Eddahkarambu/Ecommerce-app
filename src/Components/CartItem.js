@@ -51,9 +51,7 @@ class CartItem extends Component  {
                        </ProductSizeWrapper>
                    </SizeOfProduct>
                    )
-                       
-        ))}
-                    
+        ))}        
                    <button onClick={()=>this.handleClick(product.id)} >Remove Cart</button>
                     <div>
 

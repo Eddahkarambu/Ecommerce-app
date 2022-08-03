@@ -1,17 +1,14 @@
 import { Fragment,Component } from "react";
-import {Overlay,CheckoutButtons,Costs,Button1,Button2} from "./CartOverlay.style"
+import {Overlay,CheckoutButtons,Costs,Button1,Button2,FragmentOverlay} from "./CartOverlay.style"
 import CartItem from './CartItem';
 import { connect } from "react-redux"
 import { compose } from "redux"
 import {withRouter} from './WithRouter';
 
-
-
 class CartOverlay extends Component  {
   
   onClickPage = () =>
-  {
-      
+  { 
       this.props.navigate(`/CartPage`);
   }
     render(){
@@ -20,6 +17,7 @@ class CartOverlay extends Component  {
             <Fragment>
               
             {isOpen && (
+              <FragmentOverlay>
               <Overlay>
                 {cart.length? (
                 <div>
@@ -37,9 +35,10 @@ class CartOverlay extends Component  {
                 </CheckoutButtons>
                 </div>) : (
                 <div> No Items in Cart</div>)}
-   
               </Overlay>
+              </FragmentOverlay>
             )}
+            
           </Fragment>
         )
     }
