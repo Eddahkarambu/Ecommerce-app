@@ -8,6 +8,7 @@ import {withRouter} from './WithRouter';
 import { connect } from "react-redux"
 import { addToCart } from "../Redux/Actions/Cart";
 import { compose } from "redux"
+import { getAmount } from "../Utils"
 
 import {Products,Img,ProductImages,ProductImagess,ProductSizeWrapper,Images,Psize,SizeOfProduct,PriceProduct,Heading,ColorOfProduct,Pcolor,ProductColorWrapper,Paragraph,AllProducts,AddToCartButton,Button4,Imgs,AllProducts1} from "./Product.style"
 
@@ -38,12 +39,15 @@ query($id: String!){
 
 class Product extends Component  {
 
+
+
   handleClick = (product) => {
     this.props.addToCart(product)
   }
 
    
     render(){ 
+      const {currency} = this.props;
       
         return(
             <Query query={GET_ALL_PRODUCTDETAILS} variables={{id:this.props.params.id}}>
@@ -100,9 +104,8 @@ class Product extends Component  {
         ))}
                      <Psize>Price</Psize>
                     <PriceProduct>
-                     $ {data.product.prices[0].amount}
+                    {getAmount(data.product.prices, currency)}
                     </PriceProduct>
-
                     <AddToCartButton>
                      <Button4 onClick={()=>this.handleClick(data.product)}>ADD TO CART</Button4>
                     </AddToCartButton>
@@ -119,8 +122,14 @@ class Product extends Component  {
         )
     }
 }
+
+function mapStateToProps(state){
+  const {currency} = state
+  return currency
+}
+
 export default compose(
   withRouter,
-  connect(null, {addToCart})
+  connect(mapStateToProps, {addToCart})
 ) (Product);
 

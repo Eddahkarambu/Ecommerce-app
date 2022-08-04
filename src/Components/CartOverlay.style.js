@@ -15,6 +15,7 @@ export const FragmentOverlay = styled.div`
 background-color: rgba(57, 55, 72, 0.22);
 right: 0;
 left:0;
+overflow:scroll;
 top:0;
 bottom:0;
 z-index: 1;

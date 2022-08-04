@@ -8,6 +8,11 @@ export const  cart = (state=initialState, action) => {
     switch(action.type) {
         case ADD_TO_CART: {
             const cartItem = action.payload;
+            const cartExists = state.cart.filter((item) => item.id === cartItem.id)
+            if(cartExists.length){
+                return state
+            }
+
             cartItem.quantity = 1
             return {
                 ...state,

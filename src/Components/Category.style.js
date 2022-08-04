@@ -7,7 +7,10 @@ justify-content: space-between;
 flex-wrap: wrap;
 `
 
-export const CategoryDropdownContainer = styled.div`
-font-weight: 600;
-font-size: 40px;
+export const CategoryHeader = styled.div`
+font-family: 'Raleway';
+font-style: normal;
+font-weight: 400;
+font-size: 42px;
+line-height: 160%;
 `

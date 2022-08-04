@@ -8,7 +8,7 @@ justify-content:space-between;
 
 `
 export const ItemDescription = styled.div`
-
+position:relative;
 `
 export const PriceProduct = styled.div`
 text-align:start;
@@ -53,6 +53,13 @@ text-align:start;
 `
 export const AddTo = styled.div`
 display:flex;
+`
+
+export const Button6 = styled.button`
+position:absolute;
+right:0;
+bottom:0;
+
 `
 
 

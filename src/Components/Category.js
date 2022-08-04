@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  Navbar  from './Navbar';
 import ProductCard from './Card';
-import { ProductWrapper } from './Category.style';
+import { ProductWrapper,CategoryHeader } from './Category.style';
 import {Query} from 'react-apollo';
 import {gql} from 'apollo-boost'
 import { connect } from "react-redux"
@@ -40,7 +40,7 @@ class Category extends Component {
         
         <div>
     
-            <h1>Category Name <CategoryDropdownContainer/> </h1> 
+            <CategoryHeader>Category Name <CategoryDropdownContainer/> </CategoryHeader> 
           </div>
           
         <ProductWrapper>

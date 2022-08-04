@@ -6,7 +6,7 @@ import  ProductSize from './ProductSize'
 import { getAmount } from "../Utils"
 import { connect } from "react-redux"
 import { removeFromCart} from "../Redux/Actions/Cart";
-import {AllCartItems,ItemDescription,Heading,PriceProduct,SizeOfProduct,ColorOfProduct,AddToCartBoxes,AddToCartImage,Psize,Pcolor,ProductSizeWrapper,ProductColorWrapper,AddTo} from "./CartItem.style"
+import {AllCartItems,ItemDescription,Heading,PriceProduct,SizeOfProduct,ColorOfProduct,AddToCartBoxes,AddToCartImage,Psize,Pcolor,ProductSizeWrapper,ProductColorWrapper,AddTo,Button6} from "./CartItem.style"
 
 
 class CartItem extends Component  {
@@ -52,7 +52,7 @@ class CartItem extends Component  {
                    </SizeOfProduct>
                    )
         ))}        
-                   <button onClick={()=>this.handleClick(product.id)} >Remove Cart</button>
+                   <Button6 onClick={()=>this.handleClick(product.id)} >Remove Item</Button6>
                     <div>
 
                     </div>

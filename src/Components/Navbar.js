@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import CartOverlay from "./CartOverlay"
 import DropdownContainer from './DropdownContainer';
-import { Nav, NavLink,Arrow,People,Signs,Tools, Cart,} from './Navbar.style'
+import { Nav, NavLink,Arrow,People,Signs,Tools, Cart,Circle,CartDetails} from './Navbar.style'
 import logo from '../images/logo.svg'
 import CartIcon from '../images/cart.svg'
-// import { ProductSize} from './ProductSize'
+import { connect } from "react-redux"
+
 
 class Navbar extends Component {
   constructor(props){
@@ -15,7 +16,6 @@ class Navbar extends Component {
   }
   
   toggleOverlay = () => {
-    console.log("here")
     const { isOpen } = this.state;
     this.setState({isOpen: !isOpen})
   };
@@ -23,6 +23,7 @@ class Navbar extends Component {
 
   render() {
     const { isOpen } = this.state;
+    const { cart } = this.props;
     return (
       <Nav>
         <Tools>
@@ -38,7 +39,10 @@ class Navbar extends Component {
             <Signs>
                 
                 <DropdownContainer/>
+                <CartDetails>
                 <Cart  onClick={this.toggleOverlay} src={CartIcon} alt="cart"/>   
+                {cart.length > 0 && (<Circle>{cart.length}</Circle>)}
+                </CartDetails>
                 <CartOverlay isOpen={isOpen} onClose={this.toggleOverlay}/> 
                  
           </Signs>
@@ -49,7 +53,12 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+function mapStateToProps(state){
+  const {cart} = state
+  return cart
+}
+export default connect (mapStateToProps)(Navbar);
+
 
 
 
