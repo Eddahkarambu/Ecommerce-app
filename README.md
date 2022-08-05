@@ -21,10 +21,10 @@ For the frontend<br/>
    Run the Project -`Yarn start`.<br/>
 
    # Technologies used
- 1 React
- 2 Graphql
- 3 Redux 
- 4 Styled components
+ 1 React<br/>
+ 2 Graphql<br/>
+ 3 Redux <br/>
+ 4 Styled components<br>
 
  # Support and contact details
 
