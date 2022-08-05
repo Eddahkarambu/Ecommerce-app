@@ -6,7 +6,7 @@ import {Query} from 'react-apollo';
 import {gql} from 'apollo-boost'
 import {withRouter} from './WithRouter';
 import { connect } from "react-redux"
-import { addToCart } from "../Redux/Actions/Cart";
+import { AddToCartAndCalcTotal } from "../Redux/Actions/Cart";
 import { compose } from "redux"
 import { getAmount } from "../Utils"
 
@@ -73,14 +73,13 @@ class Product extends Component  {
 
   const updatedProduct = {...product, attributes: updatedProductAttr}
 
-    this.props.addToCart(updatedProduct)
+    this.props.AddToCartAndCalcTotal(updatedProduct)
   }
 
    
     render(){ 
       const {currency} = this.props;
       const { selectedOptions } = this.state;
-      console.log(selectedOptions)
       
         return(
             <Query query={GET_ALL_PRODUCTDETAILS} variables={{id:this.props.params.id}}>
@@ -163,6 +162,6 @@ function mapStateToProps(state){
 
 export default compose(
   withRouter,
-  connect(mapStateToProps, {addToCart})
+  connect(mapStateToProps, {AddToCartAndCalcTotal})
 ) (Product);
 

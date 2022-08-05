@@ -1,7 +1,10 @@
-import { ADD_TO_CART,DECREASE_CART_ITEM_QUANTITY,INCREASE_CART_ITEM_QUANTITY,REMOVE_FROM_CART } from '../Actions/ActionTypes';
+import { ADD_TO_CART,DECREASE_CART_ITEM_QUANTITY,GET_TOTAL,INCREASE_CART_ITEM_QUANTITY,REMOVE_FROM_CART } from '../Actions/ActionTypes';
+import{getAmount} from "../../Utils"
+
 
 const initialState = {
-    cart: []
+    cart: [],
+    total: 0
 }
 
 export const  cart = (state=initialState, action) => {
@@ -32,7 +35,10 @@ export const  cart = (state=initialState, action) => {
                 const id = action.payload;
                 const increaseCartItemQuantity = state.cart.map((product)=> {
                     if(product.id === id){
-                      product.quantity += 1
+                    const quantity = {
+                        quantity:product.quantity + 1
+                    }  
+                    return Object.assign({...product}, quantity);
                     }
                     return Object.assign({}, product)
                 })
@@ -46,7 +52,10 @@ export const  cart = (state=initialState, action) => {
                 const id = action.payload;
                 const decreaseCartItemQuantity = state.cart.map((product)=> {
                     if(product.id === id && product.quantity > 1){
-                       product.quantity -= 1;
+                        const quantity = {
+                            quantity:product.quantity - 1
+                        }  
+                        return Object.assign({...product}, quantity);
                     }
                     return Object.assign({}, product)
                 })
@@ -56,7 +65,36 @@ export const  cart = (state=initialState, action) => {
                 }
 
             }
+
+            case GET_TOTAL: {
+                const {cart} = state;
+                const currency = action.payload;
+                let sum = 0
+                cart.forEach((product) => {
+                    const amount = getAmount(product.prices, currency, false);
+                    console.log(amount)
+
+                    sum = sum +  (amount * product.quantity)
+                })
+                sum = (Math.round(sum*100)/100).toFixed(2)
+                
+
+                return {
+                    ...state,
+                    total: sum
+                }
+
+            }
+
         default: 
             return state;
+
+            
+
+
+
     }
+
+
+    
 }

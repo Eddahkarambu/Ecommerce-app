@@ -12,7 +12,8 @@ class CartOverlay extends Component  {
       this.props.navigate(`/CartPage`);
   }
     render(){
-        const { isOpen, cart } = this.props
+        const { isOpen, cart, total } = this.props
+        console.log(cart, total)
         return(
             <Fragment>
               
@@ -26,7 +27,7 @@ class CartOverlay extends Component  {
                 ))}
                 <Costs>
                   <div>Total</div>
-                  <div>$ 200.00</div>
+                  <div>{total}</div>
                 </Costs>
              
                 <CheckoutButtons>
@@ -45,7 +46,7 @@ class CartOverlay extends Component  {
 }
 
 function mapStateToProps(state){
-  const {cart} = state
+  const {cart, total} = state
   return cart
 }
 
