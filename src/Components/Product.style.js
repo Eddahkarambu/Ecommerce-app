@@ -40,13 +40,7 @@ display: flex;
 
 export const ProductColorWrapper = styled.div`
 display: flex;
-button:active {
-    background: #e5e5e5;
-    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-            box-shadow: inset 0px 0px 5px #c1c1c1;
-     outline: none;
-  }
+
 `
 
 export const SizeOfProduct = styled.div`
