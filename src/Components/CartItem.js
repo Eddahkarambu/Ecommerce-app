@@ -34,7 +34,7 @@ class CartItem extends Component  {
                        <Pcolor>{attribute.name}</Pcolor>
                        <ProductColorWrapper>
                        {attribute.items.map((item)=>(
-                         <ProductColor  key={item.value} color={item.value}/>
+                         <ProductColor  key={item.value} color={item.value} selected={item?.selected}/>
 
                         ))}
                        </ProductColorWrapper>
@@ -44,7 +44,7 @@ class CartItem extends Component  {
                        <Psize>{attribute.name}</Psize>
                        <ProductSizeWrapper>
                        {attribute.items.map((size)=>(
-                         <ProductSize  key={size.value} size={size.value}/>
+                         <ProductSize  key={size.value} size={size.value} selected={size?.selected}/>
 
                         ))}
                      

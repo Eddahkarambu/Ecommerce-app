@@ -39,15 +39,48 @@ query($id: String!){
 
 class Product extends Component  {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedOptions: {}
+    }
+  }
+
+  SelectOption(attr, value){
+    const {name} = attr;
+    const option = {[name]: value}
+    const { selectedOptions} = this.state;
+    this.setState({selectedOptions: {...selectedOptions, ...option}})
+  }
+
 
 
   handleClick = (product) => {
-    this.props.addToCart(product)
+    const {selectedOptions} = this.state
+    const updatedProductAttr = product.attributes.map((attr) => {
+      if(selectedOptions[attr.name] !== "undefined"){
+         attr.items.map((att) => {
+          if(att.value === selectedOptions[attr.name]){
+            att.selected =  true
+          }
+          else {
+            att.selected = false
+          }
+      })
+    }
+    return attr;
+  })
+
+  const updatedProduct = {...product, attributes: updatedProductAttr}
+
+    this.props.addToCart(updatedProduct)
   }
 
    
     render(){ 
       const {currency} = this.props;
+      const { selectedOptions } = this.state;
+      console.log(selectedOptions)
       
         return(
             <Query query={GET_ALL_PRODUCTDETAILS} variables={{id:this.props.params.id}}>
@@ -84,7 +117,7 @@ class Product extends Component  {
                        <Pcolor>{attribute.name}</Pcolor>
                        <ProductColorWrapper>
                        {attribute.items.map((item)=>(
-                         <ProductColor  key={item.value} color={item.value}/>
+                         <ProductColor  key={item.value} color={item.value} onClick={() => this.SelectOption(attribute, item.value)} selected={selectedOptions?.[attribute.name] === item.value}/>
 
                         ))}
                        </ProductColorWrapper>
@@ -94,7 +127,7 @@ class Product extends Component  {
                        <Psize>{attribute.name}</Psize>
                        <ProductSizeWrapper>
                        {attribute.items.map((size)=>(
-                         <ProductSize  key={size.value} size={size.value}/>
+                         <ProductSize  key={size.value} size={size.value} onClick={() => this.SelectOption(attribute, size.value)} selected={selectedOptions?.[attribute.name] === size.value}/>
 
                         ))}
                      

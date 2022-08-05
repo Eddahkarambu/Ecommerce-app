@@ -14,9 +14,9 @@ class ProductColor extends Component  {
         this.setState({clicked: !clicked});
     }
     render(){
-        const { color } = this.props
+        const { color, onClick } = this.props
         return(
-            <BoxColor color={color} onClick={this.handleClicked}>
+            <BoxColor color={color} onClick={onClick}>
                 <div></div>
             </BoxColor>
         )
