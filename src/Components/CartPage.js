@@ -11,13 +11,28 @@ import {
   Amount,
   Button3,
   TotalAmount,
-} from "./CartPage.style";
+} from "./Cartpage.style";
 import CartItem from "./CartItem";
 import { connect } from "react-redux";
 
 class CartPage extends Component {
-  render() {
+  getQuantity = () => {
     const { cart } = this.props;
+    let quantity = 0;
+    cart.map((product) => {
+      quantity += product.quantity;
+    });
+    return quantity;
+  };
+
+  getTax = () => {
+    const { total } = this.props;
+    const tax = (21 / 100) * total;
+    return tax;
+  };
+
+  render() {
+    const { cart, total } = this.props;
     return (
       <CartProducts>
         <Navbar />
@@ -35,15 +50,15 @@ class CartPage extends Component {
               <Cost>
                 <Taxes>
                   <TotalAmount>Tax 21%:</TotalAmount>
-                  <Amount>$42.00</Amount>
+                  <Amount>{this.getTax()}</Amount>
                 </Taxes>
                 <Quantity>
                   <TotalAmount>Quantity:</TotalAmount>
-                  <Amount>3</Amount>
+                  <Amount>{this.getQuantity()}</Amount>
                 </Quantity>
                 <Totals>
                   <TotalAmount>Total:</TotalAmount>
-                  <Amount>$ 200.00</Amount>
+                  <Amount>{total}</Amount>
                 </Totals>
               </Cost>
 
