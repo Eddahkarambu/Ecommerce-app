@@ -1,11 +1,10 @@
-import styled from 'styled-components'
-
+import styled from "styled-components";
 
 export const Select = styled.select`
-border: none;
-outline: none;
-`
+  border: none;
+  outline: none;
+`;
 
 export const Option = styled.option`
-background: white;
-`
+  background: white;
+`;
