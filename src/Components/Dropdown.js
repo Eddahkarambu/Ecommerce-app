@@ -1,37 +1,32 @@
-import React, { Component } from 'react';
-import { connect } from "react-redux"
+import React, { Component } from "react";
+import { connect } from "react-redux";
 import { changeCurrency } from "../Redux/Actions/Currency";
-import { Select,Option } from './Dropdown.style'
+import { Select, Option } from "./Dropdown.style";
 
-
-class Dropdown extends Component { 
-    componentDidMount() {
-      const {currencies, changeCurrency} = this.props;
-      if(currencies.length){
-        changeCurrency(currencies[0].label)
-      }
-
-    }
-
-    handleChange = (e) => {
-      this.props.changeCurrency(e.target.value)
-    }
-    render() {
-      const {currencies} = this.props;
-      return (
-        <Select onChange={this.handleChange}>
-          {currencies.map((currency) => (
-                  <Option key={currency.label} value={currency.label}>{currency.symbol}{currency.label}</Option>
-          ))}
-        </Select>
-      )
-      
+class Dropdown extends Component {
+  componentDidMount() {
+    const { currencies, changeCurrency } = this.props;
+    if (currencies.length) {
+      changeCurrency(currencies[0].label);
     }
   }
 
-  
-  export default connect(null, {changeCurrency}) (Dropdown)
+  handleChange = (e) => {
+    this.props.changeCurrency(e.target.value);
+  };
+  render() {
+    const { currencies } = this.props;
+    return (
+      <Select onChange={this.handleChange}>
+        {currencies.map((currency) => (
+          <Option key={currency.label} value={currency.label}>
+            {currency.symbol}
+            {currency.label}
+          </Option>
+        ))}
+      </Select>
+    );
+  }
+}
 
-
-  
-
+export default connect(null, { changeCurrency })(Dropdown);
