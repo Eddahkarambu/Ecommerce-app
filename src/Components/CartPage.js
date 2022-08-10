@@ -27,7 +27,7 @@ class CartPage extends Component {
 
   getTax = () => {
     const { total } = this.props;
-    const tax = (21 / 100) * total;
+    const tax = ((21 / 100) * total).toFixed(2);
     return tax;
   };
 
