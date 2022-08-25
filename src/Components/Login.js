@@ -4,14 +4,25 @@ class Login extends Component {
   render() {
     return (
       <div>
+        <div>LOGIN</div>
+        <div>Enter your details here to continue</div>
         <form>
           <label>
             Email Address
             <input
-              name="Email Address"
+              name="emailAddress"
               type="text"
-              //   value={this.state.emailOrUsername}
-              //   onChange={this.handleInputChange}
+              value={this.state.emailAddress}
+              onChange={this.handleInputChange}
+            />
+          </label>
+          <label>
+            Password
+            <input
+              name="password"
+              type="password"
+              value={this.state.emailAddress}
+              onChange={this.handleInputChange}
             />
           </label>
         </form>
