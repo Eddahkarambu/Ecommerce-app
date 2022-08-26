@@ -11,6 +11,13 @@ class Login extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
+    // SelectOption(attr, value) {
+    //     const { name } = attr;
+    //     const option = { [name]: value };
+    //     const { selectedOptions } = this.state;
+    //     this.setState({ selectedOptions: { ...selectedOptions, ...option } });
+    //   }
+
     handleInputChange(event) {
         event.preventDefault();
         const target = event.target;
