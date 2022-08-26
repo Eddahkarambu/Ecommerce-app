@@ -1,40 +1,6 @@
 import React, { Component } from "react";
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      emailAddress: "",
-      password: "",
-    };
-
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
-    // SelectOption(attr, value) {
-    //     const { name } = attr;
-    //     const option = { [name]: value };
-    //     const { selectedOptions } = this.state;
-    //     this.setState({ selectedOptions: { ...selectedOptions, ...option } });
-    //   }
-
-    handleInputChange(event) {
-        event.preventDefault();
-        const target = event.target;
-        this.setState({
-          [target.name]: target.value,
-        });
-      }
-    
-      handleSubmit(event) {
-        event.preventDefault();
-        Userfront.login({
-          method: "password",
-          emailOrUsername: this.state.emailOrUsername,
-          password: this.state.password,
-        });
-      }
-  }
   render() {
     return (
       <div>
@@ -46,8 +12,8 @@ class Login extends Component {
             <input
               name="emailAddress"
               type="text"
-                value={this.state.emailAddress}
-                onChange={this.handleInputChange}
+              //   value={this.state.emailAddress}
+              //   onChange={this.handleInputChange}
             />
           </label>
           <label>
@@ -55,8 +21,8 @@ class Login extends Component {
             <input
               name="password"
               type="password"
-                value={this.state.password}
-                onChange={this.handleInputChange}
+              //   value={this.state.password}
+              //   onChange={this.handleInputChange}
             />
           </label>
           <div>Forgot password </div>

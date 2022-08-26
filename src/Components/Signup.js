@@ -8,6 +8,14 @@ class Login extends Component {
           <div>Signup</div>
           <div>Enter your details here to continue</div>
           <label>
+            Firstname
+            <input name="Firstname" type="text" />
+          </label>
+          <label>
+            Lastnamme
+            <input name="lastname" type="text" />
+          </label>
+          <label>
             Email Address
             <input name="emailAddress" type="text" />
           </label>
