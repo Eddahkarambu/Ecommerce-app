@@ -22,7 +22,7 @@ class Login extends Component {
   //     event.preventDefault();
   //     Userfront.login({
   //       method: "password",
-  //       emailOrUsername: this.state.emailOrUsername,
+  //       emailAddress: this.state.emailAddress,
   //       password: this.state.password,
   //     });
   //   }
