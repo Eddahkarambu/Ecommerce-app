@@ -7,7 +7,7 @@ import { Provider } from "react-redux";
 import store from "./Redux/store";
 
 const client = new ApolloClient({
-  uri: "http://localhost:4000",
+  uri: "https://junior-react-endpoint-eddahkarambu.vercel.app/",
 });
 
 class App extends Component {
